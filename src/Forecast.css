@@ -1,0 +1,31 @@
+.weatherForcastSection{
+    width: 100%;
+    background: #fafafa;
+    height: calc(100vh - 64px);
+}
+
+.inputControl{
+    width: 30%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    height: 30px;
+    font-size: 18px;
+    color: #777;
+    border: #222 solid 1px;
+    border-radius: 4px;
+    padding: 5px 15px;
+}
+.searchBtn{
+    background: rebeccapurple;
+    color: #fff;
+    border: rebeccapurple solid 1px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.weatherForcastSection h2{
+    margin-top: 0px;
+}
