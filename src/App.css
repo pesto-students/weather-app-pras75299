@@ -15,3 +15,9 @@
   padding: 12px 0;
   color: #fff;
 }
+
+@media(max-width:768px){
+  .inputControl{
+    width: 100% !important;
+  }
+}

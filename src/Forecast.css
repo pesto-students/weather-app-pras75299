@@ -2,7 +2,7 @@
     width: 100%;
     background: url(./Assets/weatherbg1.jpg) left top no-repeat, #fff;
     background-size: cover;
-    /* height: calc(100vh - 64px); */
+    height: calc(100vh - 64px);
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -17,19 +17,21 @@
 }
 
 .inputControl{
-    width: 45%;
+    width: 48%;
     display: inline-block;
     flex-direction: column;
     margin-bottom: 20px;
-    height: 30px;
+    height: 40px;
     font-size: 18px;
     color: #777;
     border: #222 solid 1px;
     border-radius: 4px;
     padding: 5px 15px;
-    margin-right: 2%;
+    margin-right: 3%;
+    box-sizing: border-box;
+    text-transform: capitalize;
 }
-.inputControl:last-child{
+.margin-right-0{
     margin-right: 0 !important;
 }
 .searchBtn{
@@ -40,6 +42,7 @@
     font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
+    display: block;
 }
 .weatherForcastSection h2{
     margin-top: 0px;

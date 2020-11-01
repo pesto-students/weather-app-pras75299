@@ -103,8 +103,9 @@ class App extends React.Component{
     return (
       <div className="App">
         <header className="header">Weather App</header>
-        <Form loadweather={this.getWeather} error={this.state.error}/>
-        <main>
+        
+        <main className="weatherForcastSection">
+          <Form loadweather={this.getWeather} error={this.state.error}/>
          <Forecast 
             cityname={this.state.city}
             windspeed={this.state.windspeed}
