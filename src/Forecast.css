@@ -11,16 +11,14 @@
 .forcastInnerSection{
     width: 100%;
     background-color: #fff;
-    box-shadow: #000 0 3px 8px;
-    border-radius: 0 0 10px 10px;
     padding: 1rem 2rem;
     box-sizing: border-box;
     text-align: left;
 }
 
 .inputControl{
-    width: 50%;
-    display: flex;
+    width: 45%;
+    display: inline-block;
     flex-direction: column;
     margin-bottom: 20px;
     height: 30px;
@@ -29,6 +27,10 @@
     border: #222 solid 1px;
     border-radius: 4px;
     padding: 5px 15px;
+    margin-right: 2%;
+}
+.inputControl:last-child{
+    margin-right: 0 !important;
 }
 .searchBtn{
     background: rebeccapurple;
@@ -46,6 +48,25 @@
 .weatherDetails{
     text-align: left;
     padding: 2rem;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+}
+.weatherDetails .leftSection{
+    width: 50%;
+    float: left;
+}
+
+.leftSection i{
+    font-size: 80px;
+}
+.leftSection h5{
+    font-size: 30px;
+    margin: 10px 0 10px 0;
+}
+.weatherDetails .rightSection{
+    width: 50%;
+    float: left;
 }
 .weatherDetails p{
     margin: 0;
