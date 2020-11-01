@@ -1,12 +1,25 @@
 .weatherForcastSection{
     width: 100%;
-    background: #fafafa;
-    height: calc(100vh - 64px);
+    background: url(./Assets/weatherbg1.jpg) left top no-repeat, #fff;
+    background-size: cover;
+    /* height: calc(100vh - 64px); */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.forcastInnerSection{
+    width: 100%;
+    background-color: #fff;
+    box-shadow: #000 0 3px 8px;
+    border-radius: 0 0 10px 10px;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    text-align: left;
 }
 
 .inputControl{
-    width: 30%;
-    margin: 0 auto;
+    width: 50%;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
@@ -28,4 +41,31 @@
 }
 .weatherForcastSection h2{
     margin-top: 0px;
+}
+
+.weatherDetails{
+    text-align: left;
+    padding: 2rem;
+}
+.weatherDetails p{
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.monthForCast{
+    width: 90%;
+    margin: 2rem auto;
+    display: block;
+    overflow: auto;
+    white-space: nowrap;
+    text-align: left;
+    padding: 0 3rem;
+}
+.monthForCast .singleDaydata{
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+    padding: 1rem;
+    margin-right: 15px;
+    display: inline-block;
 }
