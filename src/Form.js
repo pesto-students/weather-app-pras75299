@@ -3,7 +3,7 @@ import React from "react";
 const Form = (props) => {
   return (
     <div className="forcastInnerSection">
-        <h2> Find Current Weather </h2>
+        <h2> Search Current Weather </h2>
         <form onSubmit={props.loadweather}>
         <div>{props.error ? error() : ""}</div>
         <input name="city" type="text" className="inputControl" placeholder="City"/>

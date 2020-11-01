@@ -59,7 +59,7 @@ class App extends React.Component{
     }
   }
 
-  calCelsius(temp) {
+  convertToCelsius(temp) {
     let cell = Math.floor(temp - 273.15);
     return cell;
   }
@@ -74,14 +74,15 @@ class App extends React.Component{
       );
 
       const response = await apiFn.json();
+      console.log(response);
 
       this.setState({
         city: `${response.name}, ${response.sys.country}`,
         country: response.sys.country,
         windspeed:response.wind.speed,
         main: response.weather[0].main,
-        celsius: this.calCelsius(response.main.temp),
-        feel: this.calCelsius(response.main.feels_like),
+        celsius: this.convertToCelsius(response.main.temp),
+        feel: this.convertToCelsius(response.main.feels_like),
         humidity:response.main.humidity,
         description: response.weather[0].description,
         error: false
@@ -97,6 +98,7 @@ class App extends React.Component{
       });
     }
   };
+  
 
 
   render() {
