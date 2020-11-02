@@ -4,6 +4,8 @@ import Forecast from "./Forecast";
 import Form from './Form';
 import KEY from "./CONSTANT";
 import "weather-icons/css/weather-icons.css";
+import WeeklyForecast from './WeeklyForecast';
+
 class App extends React.Component{
   constructor() {
     super();
@@ -17,7 +19,7 @@ class App extends React.Component{
       humidity: undefined,
       celsius: undefined,
       description: "",
-      error: false
+      error: ''
     };
 
     this.weatherIcon = {
@@ -68,33 +70,35 @@ class App extends React.Component{
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;   
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${KEY}`;
     if (country && city) {
-      const apiFn = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${KEY}`
-      );
-
-      const response = await apiFn.json();
-      console.log(response);
-
-      this.setState({
-        city: `${response.name}, ${response.sys.country}`,
-        country: response.sys.country,
-        windspeed:response.wind.speed,
-        main: response.weather[0].main,
-        celsius: this.convertToCelsius(response.main.temp),
-        feel: this.convertToCelsius(response.main.feels_like),
-        humidity:response.main.humidity,
-        description: response.weather[0].description,
-        error: false
-      });
-
+      const apiFn = await fetch(URL);
+      const data = await apiFn.json();
+      console.log(data);
+      if(data.cod !== 404){
+        this.setState({
+          city: data.name,
+          country: data.sys.country,
+          windspeed:data.wind.speed,
+          main: data.weather[0].main,
+          celsius: this.convertToCelsius(data.main.temp),
+          feel: this.convertToCelsius(data.main.feels_like),
+          humidity:data.main.humidity,
+          description: data.weather[0].description,
+          error: ''
+        });
+  
+        
+        this.weatherIcons(this.weatherIcon, data.weather[0].id);
+      } else{
+        this.setState({
+          error: data.message
+        });
+      }
       
-      this.weatherIcons(this.weatherIcon, response.weather[0].id);
-
-      console.log(response);
     } else {
       this.setState({
-        error: true
+        error: 'Search data is not found'
       });
     }
   };
@@ -108,6 +112,7 @@ class App extends React.Component{
         
         <main className="weatherForcastSection">
           <Form loadweather={this.getWeather} error={this.state.error}/>
+          {/* <WeeklyForecast/> */}
          <Forecast 
             cityname={this.state.city}
             windspeed={this.state.windspeed}
@@ -117,6 +122,9 @@ class App extends React.Component{
             humid={this.state.humidity}
             description={this.state.description} />
         </main>
+
+        
+
       </div>
     );
   }
