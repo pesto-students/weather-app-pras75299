@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Forecast from "./Forecast";
-import Form from './Form';
-import KEY from "./CONSTANT";
+import Forecast from "./components/Forecast/Forecast";
+import Form from './components/Form/Form';
+import KEY from "./components/CONSTANT";
 import "weather-icons/css/weather-icons.css";
 
 class App extends React.Component{
