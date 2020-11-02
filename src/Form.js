@@ -14,7 +14,7 @@ const Form = (props) => {
   );
 };
 
-const error = (props) => {
+const error = () => {
   return (
     alert('Please Enter City and Country...!')
   );

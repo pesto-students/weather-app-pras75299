@@ -11,13 +11,15 @@ const Forecast = (props) => {
             {props.temp_celsius ? (
             <h5>{props.temp_celsius}&deg; C</h5>
             ) : null}
-            <p> {props.description.charAt(0).toUpperCase() +
+            <p className="noBorderMargin"> {props.description.charAt(0).toUpperCase() +
               props.description.slice(1)}</p>
           </div>          
         </div>
 
         <div className="rightSection">
-          <p>{props.cityname}</p>
+          {props.cityname ? (
+            <p>Location: <span>{props.cityname}</span></p>
+            ) : null}
           <p style={{'display':'none'}}>Height From Sea Level: <span>3000ft.</span></p>
           {props.windspeed ? (
             <p>Wind Speed: <span>{props.windspeed} km/hr</span></p>
@@ -28,7 +30,7 @@ const Forecast = (props) => {
             <p>Humidity: <span>{props.humid}</span></p>
             ) : null}
           {props.feelLIke ? (
-            <p>Feel like: <span>{props.feelLIke}&deg; C</span></p>
+            <p className="noBorderMargin">Feel like: <span>{props.feelLIke}&deg; C</span></p>
             ) : null}
           
         </div>

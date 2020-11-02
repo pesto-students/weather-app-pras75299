@@ -6,7 +6,7 @@
 }
 
 .header{
-  background-color: rebeccapurple;
+  background-color: #000;
   box-shadow: #ccc 0 4px 6px;
   width: 100%;
   text-align: center;
@@ -19,5 +19,8 @@
 @media(max-width:768px){
   .inputControl{
     width: 100% !important;
+  }
+  .weatherDetails p{
+    font-size: 15px !important;
   }
 }

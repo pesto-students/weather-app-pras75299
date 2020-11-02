@@ -71,10 +71,10 @@ class App extends React.Component{
     const country = e.target.elements.country.value;   
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${KEY}`;
     if (country && city) {
-      const apiFn = await fetch(URL);
+      const apiFn = await fetch(URL)
       const data = await apiFn.json();
       console.log(data);
-      if(data.cod !== 404){
+      if(data.cod !== 404 && country !== undefined){
         this.setState({
           city: data.name,
           country: data.sys.country,
@@ -101,9 +101,6 @@ class App extends React.Component{
       });
     }
   };
-  
-
-
   render() {
     return (
       <div className="App">
@@ -111,14 +108,14 @@ class App extends React.Component{
         
         <main className="weatherForcastSection">
           <Form loadweather={this.getWeather} error={this.state.error}/>
-         <Forecast 
-            cityname={this.state.city}
-            windspeed={this.state.windspeed}
-            weatherIcon={this.state.icon}
-            temp_celsius={this.state.celsius}
-            feelLIke={this.state.feel}
-            humid={this.state.humidity}
-            description={this.state.description} />
+          <Forecast 
+              cityname={this.state.city}
+              windspeed={this.state.windspeed}
+              weatherIcon={this.state.icon}
+              temp_celsius={this.state.celsius}
+              feelLIke={this.state.feel}
+              humid={this.state.humidity}
+              description={this.state.description} />
         </main>
 
         

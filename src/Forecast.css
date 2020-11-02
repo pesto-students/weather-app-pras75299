@@ -35,9 +35,9 @@
     margin-right: 0 !important;
 }
 .searchBtn{
-    background: rebeccapurple;
-    color: #fff;
-    border: rebeccapurple solid 1px;
+    background: #fff;
+    color: #000;
+    border: #000 solid 1px;
     padding: 10px 20px;
     font-size: 14px;
     border-radius: 4px;
@@ -74,6 +74,13 @@
 .weatherDetails p{
     margin: 0;
     padding-bottom: 10px;
+    font-size: 20px;
+    border-bottom: #000 solid 1px;
+    margin-bottom: 10px;
+}
+.noBorderMargin{
+    margin-bottom: 0px !important;
+    border-bottom: none !important;
 }
 
 .monthForCast{
