@@ -4,7 +4,6 @@ import Forecast from "./Forecast";
 import Form from './Form';
 import KEY from "./CONSTANT";
 import "weather-icons/css/weather-icons.css";
-import WeeklyForecast from './WeeklyForecast';
 
 class App extends React.Component{
   constructor() {
@@ -112,7 +111,6 @@ class App extends React.Component{
         
         <main className="weatherForcastSection">
           <Form loadweather={this.getWeather} error={this.state.error}/>
-          {/* <WeeklyForecast/> */}
          <Forecast 
             cityname={this.state.city}
             windspeed={this.state.windspeed}
