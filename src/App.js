@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 import Forecast from "./components/Forecast/Forecast";
-import Form from './components/Form/Form';
+import Form from "./components/Form/Form";
 import KEY from "./components/CONSTANT";
 import "weather-icons/css/weather-icons.css";
 
-class App extends React.Component{
+class App extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -18,7 +18,7 @@ class App extends React.Component{
       humidity: undefined,
       celsius: undefined,
       description: "",
-      error: ''
+      error: "",
     };
 
     this.weatherIcon = {
@@ -28,7 +28,7 @@ class App extends React.Component{
       Snow: "wi-snow",
       Atmosphere: "wi-fog",
       Clear: "wi-day-sunny",
-      Clouds: "wi-day-fog"
+      Clouds: "wi-day-fog",
     };
   }
 
@@ -65,39 +65,37 @@ class App extends React.Component{
     return cell;
   }
 
-  getWeather = async e => {
+  getWeather = async (e) => {
     e.preventDefault();
     const city = e.target.elements.city.value;
-    const country = e.target.elements.country.value;   
+    const country = e.target.elements.country.value;
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${KEY}`;
     if (country && city) {
-      const apiFn = await fetch(URL)
+      const apiFn = await fetch(URL);
       const data = await apiFn.json();
       console.log(data);
-      if(data.cod !== 404 && country !== undefined){
+      if (data.cod !== 404 && country !== undefined) {
         this.setState({
           city: data.name,
           country: data.sys.country,
-          windspeed:data.wind.speed,
+          windspeed: data.wind.speed,
           main: data.weather[0].main,
           celsius: this.convertToCelsius(data.main.temp),
           feel: this.convertToCelsius(data.main.feels_like),
-          humidity:data.main.humidity,
+          humidity: data.main.humidity,
           description: data.weather[0].description,
-          error: ''
+          error: "",
         });
-  
-        
+
         this.weatherIcons(this.weatherIcon, data.weather[0].id);
-      } else{
+      } else {
         this.setState({
-          error: data.message
+          error: data.message,
         });
       }
-      
     } else {
       this.setState({
-        error: 'Search data is not found'
+        error: "Search data is not found",
       });
     }
   };
@@ -105,21 +103,19 @@ class App extends React.Component{
     return (
       <div className="App">
         <header className="header">Weather App</header>
-        
+
         <main className="weatherForcastSection">
-          <Form loadweather={this.getWeather} error={this.state.error}/>
-          <Forecast 
-              cityname={this.state.city}
-              windspeed={this.state.windspeed}
-              weatherIcon={this.state.icon}
-              temp_celsius={this.state.celsius}
-              feelLIke={this.state.feel}
-              humid={this.state.humidity}
-              description={this.state.description} />
+          <Form loadweather={this.getWeather} error={this.state.error} />
+          <Forecast
+            cityname={this.state.city}
+            windspeed={this.state.windspeed}
+            weatherIcon={this.state.icon}
+            temp_celsius={this.state.celsius}
+            feelLIke={this.state.feel}
+            humid={this.state.humidity}
+            description={this.state.description}
+          />
         </main>
-
-        
-
       </div>
     );
   }
