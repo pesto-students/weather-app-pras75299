@@ -4,6 +4,7 @@ import Forecast from "./components/Forecast/Forecast";
 import Form from "./components/Form/Form";
 import KEY from "./components/CONSTANT";
 import "weather-icons/css/weather-icons.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
   constructor() {
